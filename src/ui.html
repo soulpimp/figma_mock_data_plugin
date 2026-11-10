@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Data Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/figma-plugin-ds.css">
+    <link rel="stylesheet" href="./ui.css">
+</head>
+<body>
+    <div id="app" class="mock-data--wrapper">
+        <div class="form-group">
+            <label for="avatar-style">Choose Avatar Style:</label>
+            <select id="avatar-style" class="select-field">
+                <option value="avataaars">Illustration (Avataaars)</option>
+                <option value="bottts">Robots (Bottts)</option>
+                <option value="lorelei">Minimalist (Lorelei)</option>
+                <option value="photo">Real Photo (Pravatar)</option>
+            </select>
+        </div>
+        
+        <div class="accordion-group">
+            <div class="accordion-item">
+                <button type="button" class="accordion-header" id="accordion-single-btn">
+                    <span>Single Template</span>
+                    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="accordion-single-content">
+                    <div class="form-group">
+                        <label for="template-select">Choose Template</label>
+                        <select id="template-select" class="select-field">
+                            <option value="user_card">User Card Component</option>
+                            <option value="product_card">Product Card Component</option>
+                            <option value="data_table">Data Table</option>
+                        </select>
+                    </div>
+
+                    <div id="table-options" class="form-group" style="display: none;">
+                        <label for="initial-rows">Initial Table Rows</label>
+                        <input type="number" id="initial-rows" class="input-field" value="5" min="1" max="20">
+                    </div>
+    
+                    <button id="btn-template" class="btn-primary">Insert Master Template</button>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button type="button" class="accordion-header" id="accordion-batch-btn">
+                <span>Batch Generation</span>
+                <svg class="chevron-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                </button>
+                <div class="accordion-content" id="accordion-batch-content">
+                    <!-- Select Data Category -->
+                    <div class="form-group">
+                        <label for="schema-select">Data Category</label>
+                
+                        <select id="schema-select" class="select-field">
+                            <option value="user_profile">User Profiles</option>
+                            <option value="product_catalog">Product Catalog</option>
+                            <option value="financial_table">Financial Transactions</option>
+                        </select>        
+                    </div>
+                
+                    <!-- Quantity Input -->
+                    <div class="form-group">
+                        <label for="batch-count">Quantity / Row Count</label>
+                        <input type="number" id="batch-count" class="input-field" value="6" min="1" max="50">
+                    </div>
+                
+                    <!-- Action Buttons -->
+                    <div class="button-stack">
+                        <button id="btn-batch-create" class="btn-primary">Batch Generate New Items</button>
+                        <button id="btn-populate-existing" class="btn-secondary">Populate Selected Items</button>
+                        <button id="btn-add-rows" style="display: none;" class="btn-secondary">Add Rows to Selected Table</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <button type="button" class="accordion-header" id="accordion-batch-btn">
+            <span>Custom Data (JSON Array)</span>
+            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </button>
+            <div class="accordion-content" id="accordion-batch-content">
+                <div class="form-group">
+                    <textarea id="json-input" class="input-field"  placeholder='[{"name": "Alice", "role": "Developer"}]'></textarea>
+                </div>
+                <button id="btn-custom" class="btn-secondary">Apply Custom JSON</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./ui.js"></script>
+</body>
+</html>

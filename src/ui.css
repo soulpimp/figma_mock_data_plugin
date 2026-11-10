@@ -1,0 +1,203 @@
+/* 1. Theme Interactive Tokens */
+:root, body {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+
+    &.figma-light {
+        --bg-color: #ffffff;
+        --text-color: #333333;
+        --text-secondary: #757575;
+        --border-color: #e6e6e6;
+        --input-bg: #f5f5f5;
+
+        --btn-primary-bg: #18a0fb;
+        --btn-primary-text: #ffffff;
+        --btn-primary-hover: #0d8de3;
+        --btn-primary-active: #0077c5;
+
+        --btn-secondary-bg: #f0f0f0;
+        --btn-secondary-hover: #e5e5e5;
+        --btn-secondary-active: #d6d6d6;
+
+        --focus-ring: rgba(24, 160, 251, 0.4);
+        --focus-border: #18a0fb;
+    }
+
+    &.figma-dark {
+        --bg-color: #2c2c2c;
+        --text-color: #ffffff;
+        --text-secondary: #b3b3b3;
+        --border-color: #444444;
+        --input-bg: #1e1e1e;
+
+        --btn-primary-bg: #0d99ff;
+        --btn-primary-text: #ffffff;
+        --btn-primary-hover: #2bb0ff;
+        --btn-primary-active: #0082db;
+
+        --btn-secondary-bg: #383838;
+        --btn-secondary-hover: #484848;
+        --btn-secondary-active: #585858;
+
+        --focus-ring: rgba(13, 153, 255, 0.45);
+        --focus-border: #0d99ff;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+}
+
+.input-field, .select-field {
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    border-radius: 4px;
+    padding: 3px 6px;
+
+    &:focus {
+        border-color: var(--focus-border);
+        box-shadow: 0 0 0 2px var(--focus-ring);
+        outline: none;
+    }
+}
+
+[class^="btn-"] {
+    padding: 6px 12px;
+    border-radius: 4px;
+    width: 100%;
+    transition: background-color 0.12s ease, transform 0.08s ease;
+    color: var(--btn-text--color);
+    border: 1px solid var(--btn-border--color, transparent);
+    background-color: var(--btn-bg--color);
+    
+    &:hover {
+        background-color: var(--btn-bg--color);
+    }
+
+    &:active {
+        background-color: var(--btn-bg--color);
+        transform: scale(0.98);
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--focus-ring);
+    }
+}
+
+.btn-primary {
+    --btn-bg--color: var(--btn-primary-bg);
+    --btn-text--color: var(--btn-primary-text);
+
+    &:hover {
+        --btn-bg--color: var(--btn-primary-hover);
+    }
+
+    &:active {
+        --btn-bg--color: var(--btn-primary-active);
+    }
+
+    &#btn-batch-create {
+        margin-bottom: 6px;
+    }
+
+}
+
+.btn-secondary {
+    --btn-bg--color:  var(--btn-secondary-bg);
+    --btn-text--color:  var(--text-color);
+    --btn-border--color: var(--border-color);
+
+    &:hover {
+        --btn-bg--color: var(--btn-secondary-hover);
+    }
+
+    &:active {
+        --btn-bg--color: var(--btn-secondary-active);
+    }
+}
+
+.button-stack, .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.mock-data--wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin:0;
+    padding: 12px 24px;
+}
+
+label {
+    margin: 0;
+    color: var(--text-color);
+    font-size: .9rem;
+}
+
+.section-title {
+    color: var(--text-color);
+}
+
+/* Accordion */
+
+.accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.accordion-item {
+  border: 1px solid var(--figma-color-border, #e5e5e5);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: var(--figma-color-bg, #ffffff);
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--figma-color-text, #333333);
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion-header:hover {
+  background-color: var(--figma-color-bg-hover, #f5f5f5);
+}
+
+.chevron-icon {
+  transition: transform 0.2s ease;
+}
+
+.accordion-item.active .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  display: none;
+  padding: 12px;
+  height: auto;
+  border-top: 1px solid var(--figma-color-border, #e5e5e5);
+  transition: all 0.2s ease-in-out;
+}
+
+.accordion-item.active .accordion-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

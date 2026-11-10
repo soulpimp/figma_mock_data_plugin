@@ -1,0 +1,17 @@
+{
+  "name": "Mock Data Generator",
+  "id": "mock-data-generator-plugin",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "editorType": ["figma"],
+  "networkAccess": {
+    "allowedDomains": [
+      "https://api.dicebear.com",
+      "https://i.pravatar.cc",
+      "https://picsum.photos",
+      "https://cdn.jsdelivr.net"
+    ],
+    "reasoning": "Generates Mock User, Product and Tabular data to help make more realistic component layouts."
+  }
+}

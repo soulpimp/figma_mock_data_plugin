@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "esnext",
+        "lib":["es2017","dom"],
+        "moduleResolution": "bundler",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "typeRoots": ["./node_modules/@types","./node_modules/@figma"],
+        "strict": true
+    },
+    "include": ["src/**/*"]
+}
